@@ -20,7 +20,7 @@
 }
 
 
-@mixin boton($color, $text) {
+@mixin button($color, $text) {
     background-color: $color;
     font-size: 2rem;
     padding: 1.2rem 4rem;
@@ -49,4 +49,11 @@
     display: grid;
     gap: $gap;
     grid-template-columns: repeat($columns, 1fr);
+}
+
+@mixin bgImage($url, $gradientColor) {
+    background-image: linear-gradient($gradientColor 0%, $gradientColor 100%), url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
 }
