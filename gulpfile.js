@@ -23,38 +23,38 @@ function css( done ) {
     done();
 }
 
-function imagenes() {
+function images() {
     return src('src/img/**/*')
         .pipe( imagemin({ optimizationLevel: 3 }) )
         .pipe( dest('build/img') )
 }
 
 function versionWebp() {
-    const opciones = {
+    const options = {
         quality: 50
     }
     return src('src/img/**/*.{png,jpg}')
-        .pipe( webp( opciones ) )
+        .pipe( webp( options ) )
         .pipe( dest('build/img') )
 }
 function versionAvif() {
-    const opciones = {
+    const options = {
         quality: 50
     }
     return src('src/img/**/*.{png,jpg}')
-        .pipe( avif( opciones ) )
+        .pipe( avif( options ) )
         .pipe( dest('build/img'))
 }
 
 function dev() {
     watch( 'src/scss/**/*.scss', css );
-    watch( 'src/img/**/*', imagenes );
+    watch( 'src/img/**/*', images );
 }
 
 
 exports.css = css;
 exports.dev = dev;
-exports.imagenes = imagenes;
+exports.images = images;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.default = series( imagenes, versionWebp, versionAvif, css, dev  );
+exports.default = series( images, versionWebp, versionAvif, css, dev  );
