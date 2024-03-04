@@ -13,6 +13,10 @@
 
     .benefits-content {
         grid-column: 1 / 4;
+
+        h2 {
+            @include m.headingBorder( v.$secondary, v.$white);
+        }
     }
 
     .image {
