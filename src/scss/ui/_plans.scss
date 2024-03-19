@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.plans {
+    background-color: v.$secondary;
+
+    h2 {
+        @include m.headingBorder(v.$white, v.$primary);
+    }
+
+    .description {
+        color: v.$white;
+    }
+}
+
+.our-plans {
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet {
+        flex-direction: row;
+    }
+
+    .plan {
+        &.business {
+            order: -1;
+
+            @include m.tablet {
+                order: unset;
+            }
+        }
+    }
+}
