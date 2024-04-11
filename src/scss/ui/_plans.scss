@@ -19,15 +19,66 @@
 
     @include m.tablet {
         flex-direction: row;
+        max-width: 80rem;
+        margin-inline: auto;
+        margin-block-start: 10rem;
     }
 
     .plan {
-        &.business {
-            order: -1;
+        flex-grow: 1;
+        background-color: v.$white;
+        padding: 16rem 4rem 4rem 4rem;
+        border-bottom: 1px solid #e1e1e1;
 
+        @include m.tablet {
+            border: none;
+            transition-property: transform;
+            transition-duration: 300ms;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        .price {
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .list {
+            li {
+                text-align: center;
+                margin-bottom: 2rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &.first {
+            @include m.bgIcon('../img/icono_inicio.svg');
+        }
+
+        &.business {
+            background-color: v.$primary;
+            order: -1;
+            @include m.bgIcon('../img/icono_negocio.svg');
+            
             @include m.tablet {
                 order: unset;
+                margin-top: -5rem;
+                margin-bottom: -5rem;
+                border-radius: 2rem;
+                background-position: 50% 7rem;
+                padding-top: calc(16rem + 5rem);
+                z-index: 100;
             }
+        }
+
+        &.pro {
+            @include m.bgIcon('../img/icono_pro.svg');
         }
     }
 }

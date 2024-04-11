@@ -4,3 +4,10 @@
 .btn-primary {
     @include m.button(v.$primary, v.$secondary);
 }
+
+.plan-button {
+    @extend .btn-primary;
+    border: 2px solid v.$white;
+    margin-top: 2rem;
+    display: block;
+}
